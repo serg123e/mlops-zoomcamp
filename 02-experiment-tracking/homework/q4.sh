@@ -1,0 +1,1 @@
+mlflow ui --backend-store-uri sqlite:////home/sir/mlops/mlops-zoomcamp/02-experiment-tracking/homework/mlflow.db --default-artifact-root=/home/sir/mlops/mlops-zoomcamp/02-experiment-tracking/homework/artifacts

@@ -1,0 +1,1 @@
+echo "Q1: $(mlflow --version)"

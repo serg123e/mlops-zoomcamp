@@ -35,10 +35,13 @@ def run_optimization(data_path: str, num_trials: int):
 
     def objective(params):
 
-        rf = RandomForestRegressor(**params)
-        rf.fit(X_train, y_train)
-        y_pred = rf.predict(X_val)
-        rmse = mean_squared_error(y_val, y_pred, squared=False)
+        with mlflow.start_run(): 
+
+            rf = RandomForestRegressor(**params)
+            rf.fit(X_train, y_train)
+            y_pred = rf.predict(X_val)
+            rmse = mean_squared_error(y_val, y_pred, squared=False)
+            mlflow.log_metric("rmse", rmse)
 
         return {'loss': rmse, 'status': STATUS_OK}
 
@@ -60,6 +63,9 @@ def run_optimization(data_path: str, num_trials: int):
         rstate=rstate
     )
 
+
+#mlflow.set_tracking_uri("sqlite:////home/sir/mlops/mlops-zoomcamp/02-experiment-tracking/homework/mlflow.db")
+#mlflow.set_experiment("hw2-train")
 
 if __name__ == '__main__':
     run_optimization()

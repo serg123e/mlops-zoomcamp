@@ -79,7 +79,7 @@ def run_register_model(data_path: str, top_n: int):
     # print(best_run)
     print(best_run.data.metrics)
 
-    print(f"Q6.2: {best_run.data.metrics['test_rmse']:.3f}")
+    print(f"Q6: {best_run.data.metrics['test_rmse']:.3f}")
 
     model_uri = f"runs:/{best_run.info.run_id}/model"
     print(model_uri)

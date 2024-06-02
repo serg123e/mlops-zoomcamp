@@ -1,0 +1,15 @@
+
+check `Mage Time Series Bar Chart Not Showing` in the FAQ:
+https://docs.google.com/document/d/12TlBfhIiKtyBv8RnsoJR6F72bkPDGEvPOItJIxaEzE0/edit
+
+
+
+http://localhost:6789/settings/platform/settings
+
+Q1: v0.9.70
+Q2: 55 lines
+Q3: 3403766 rows
+Q4: 3316216
+Q5: 24.776359644078624
+Q6: 4500 or 4552 bytes
+

@@ -27,7 +27,10 @@ def read_data(filename):
 @click.option('--year', default=2023, prompt='Year', help='Year.')
 @click.option('--month', prompt='Month number', help='Month.')
 def train(year,month):
-    df = read_data(f"https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{year}-{month}.parquet")
+   
+    filename = f"https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{year}-{int(month):02d}.parquet"
+    print(f"Reading {filename}")
+    df = read_data(filename)
 
     dicts = df[categorical].to_dict(orient='records')
     X_val = dv.transform(dicts)

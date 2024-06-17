@@ -1,0 +1,2 @@
+Reading https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-05.parquet
+mean predicted duration for 2023-5: 0.19174419265916945

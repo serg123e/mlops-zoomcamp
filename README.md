@@ -14,8 +14,12 @@ MLOps-Zoomcamp projects and homeworks
 - [3. Experiment tracking and model management](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/03-orchestration)
   - [Homework 3](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2024/03-orchestration/homework.md)
   - [Answers](03-mage/)
+- [4. Deployment](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/04-deployment)
+  - [Homework 3](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2024/03-orchestration/homework.md)
+  - [Answers](04-deployment/homework/)
+- [5. Monitoring](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/05-monitoring)
+  - [Homework 5](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2024/05-monitoring/homework.md)
+  - [Answers](05-monitoring/)
 
 
-## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.

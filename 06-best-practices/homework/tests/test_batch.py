@@ -1,5 +1,5 @@
-import batch
 from datetime import datetime
+import batch
 import pandas as pd
 from pandas.testing import assert_frame_equal
 
@@ -12,7 +12,7 @@ def test_prepare_data():
         (None, None, dt(1, 1), dt(1, 10)),
         (1, 1, dt(1, 2), dt(1, 10)),
         (1, None, dt(1, 2, 0), dt(1, 2, 59)),
-        (3, 4, dt(1, 2, 0), dt(2, 2, 1)),      
+        (3, 4, dt(1, 2, 0), dt(2, 2, 1)),
     ]
 
     categorical = ['PULocationID', 'DOLocationID']
@@ -27,14 +27,10 @@ def test_prepare_data():
         ('-1', '-1', dt(1, 1), dt(1, 10), 9.0),
         ('1', '1', dt(1, 2), dt(1, 10), 8.0)
     ]
-    expected_columns = ['PULocationID', 'DOLocationID', 'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'duration']
+    expected_columns = ['PULocationID', 'DOLocationID',
+                        'tpep_pickup_datetime', 'tpep_dropoff_datetime', 'duration']
 
     expected_df = pd.DataFrame(expected_data, columns=expected_columns)
 
     assert actual_df.columns.tolist() == expected_df.columns.tolist()
     assert_frame_equal(actual_df, expected_df)
-
-    # assert actual_df.T.to_dict().values() == expected_df.T.to_dict().values()
-
-
-

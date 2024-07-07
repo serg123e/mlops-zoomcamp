@@ -51,6 +51,7 @@ def get_output_path(year, month):
 
 
 def main(year, month):
+
     input_file = get_input_path(year, month)
 
     with open('model.bin', 'rb') as f_in:
@@ -66,7 +67,7 @@ def main(year, month):
 
 
     dicts = df[categorical].to_dict(orient='records')
-    X_val = dv.transform(dicts)
+    X_val = dv.transform(dicts) # pylint: disable=invalid-name
     y_pred = lr.predict(X_val)
 
 

@@ -8,19 +8,23 @@ import os
 
 S3_ENDPOINT_URL = "http://localhost:4566"
 
-def read_data(filename):
+def storage_options():
     if S3_ENDPOINT_URL:
-        options = {
+        return {
             'client_kwargs': {
                 'endpoint_url': S3_ENDPOINT_URL
             }
         }
-
-        df = pd.read_parquet(filename, storage_options=options)
     else:
-        df = pd.read_parquet(filename)
+      return None
 
+def read_data(filename):
+    df = pd.read_parquet(filename, storage_options=storage_options())
     return df
+
+def save_data(df_result):
+    output_file = get_output_path(year, month)
+    df_result.to_parquet(output_file, engine='pyarrow', index=False, storage_options=storage_options())
 
 def prepare_data(df, categorical):    
     df['duration'] = df.tpep_dropoff_datetime - df.tpep_pickup_datetime
@@ -45,9 +49,9 @@ def get_output_path(year, month):
     return output_pattern.format(year=year, month=month)
 
 
+
 def main(year, month):
     input_file = get_input_path(year, month)
-    output_file = get_output_path(year, month)
 
     with open('model.bin', 'rb') as f_in:
         dv, lr = pickle.load(f_in)
@@ -68,13 +72,14 @@ def main(year, month):
 
     print('predicted mean duration:', y_pred.mean())
 
+    print('predicted duration sum:', y_pred.sum())
 
     df_result = pd.DataFrame()
     df_result['ride_id'] = df['ride_id']
     df_result['predicted_duration'] = y_pred
 
 
-    df_result.to_parquet(output_file, engine='pyarrow', index=False)
+    save_data(df_result)
 
 if __name__ == '__main__':
     year = int(sys.argv[1])

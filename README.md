@@ -20,6 +20,11 @@ MLOps-Zoomcamp projects and homeworks
 - [5. Monitoring](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/05-monitoring)
   - [Homework 5](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2024/05-monitoring/homework.md)
   - [Answers](05-monitoring/)
+- [6. Best practices](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main/06-best-practices)
+  - [Homework 5](https://github.com/DataTalksClub/mlops-zoomcamp/blob/main/cohorts/2024/06-best-practices/homework.md)
+  - [Answers](06-best-practices/homework/)
+
+
 
 
 

@@ -1,5 +1,6 @@
-from datetime import datetime
 import os
+from datetime import datetime
+
 import pandas as pd
 import s3fs
 from pytest import approx

@@ -1,7 +1,10 @@
 from datetime import datetime
-import batch
+
 import pandas as pd
 from pandas.testing import assert_frame_equal
+
+import batch
+
 
 def dt(hour, minute, second=0):
     return datetime(2023, 1, 1, hour, minute, second)

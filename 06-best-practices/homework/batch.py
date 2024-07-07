@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import sys
 import os
 import pickle
+import sys
+
 import pandas as pd
+
 
 def storage_options():
     if os.getenv("S3_ENDPOINT_URL"):

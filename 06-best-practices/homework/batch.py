@@ -6,13 +6,11 @@ import pickle
 import pandas as pd
 import os
 
-S3_ENDPOINT_URL = "http://localhost:4566"
-
 def storage_options():
-    if S3_ENDPOINT_URL:
+    if os.getenv("S3_ENDPOINT_URL", False):
         return {
             'client_kwargs': {
-                'endpoint_url': S3_ENDPOINT_URL
+                'endpoint_url': os.environ["S3_ENDPOINT_URL"]
             }
         }
     else:
@@ -44,7 +42,7 @@ def get_input_path(year, month):
 
 
 def get_output_path(year, month):
-    default_output_pattern = 's3://nyc-duration-prediction-serg123e/taxi_type=fhv/year={year:04d}/month={month:02d}/predictions.parquet'
+    default_output_pattern = 's3://nyc-duration-prediction-alexey/taxi_type=fhv/year={year:04d}/month={month:02d}/predictions.parquet'
     output_pattern = os.getenv('OUTPUT_FILE_PATTERN', default_output_pattern)
     return output_pattern.format(year=year, month=month)
 
@@ -78,6 +76,7 @@ def main(year, month):
     df_result['ride_id'] = df['ride_id']
     df_result['predicted_duration'] = y_pred
 
+    print('predicted duration df sum:', df_result['predicted_duration'].sum())
 
     save_data(df_result)
 

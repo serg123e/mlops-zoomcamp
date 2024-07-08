@@ -1,8 +1,8 @@
 import os
 from datetime import datetime
 
-import pandas as pd
 import s3fs
+import pandas as pd
 from pytest import approx
 
 import batch
